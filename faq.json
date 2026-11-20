@@ -1,0 +1,166 @@
+[
+  {
+    "categoria": "Como usar o Saúde em Foco",
+    "pergunta": "Como encontro uma unidade de saúde no aplicativo?",
+    "resposta": "Acesse “Buscar unidades” e digite o nome da unidade, o bairro ou parte do endereço. Você também pode selecionar uma categoria — UBS, UPA ou Hospital — para restringir os resultados. As unidades com coordenadas cadastradas aparecem no mapa.",
+    "palavras_chave": [
+      "buscar",
+      "pesquisar",
+      "encontrar",
+      "localizar",
+      "unidade",
+      "mapa",
+      "endereço",
+      "bairro"
+    ]
+  },
+  {
+    "categoria": "Como usar o Saúde em Foco",
+    "pergunta": "Como faço para ver a localização de uma unidade?",
+    "resposta": "Na página “Buscar unidades”, consulte o mapa. Os marcadores representam os estabelecimentos que possuem coordenadas cadastradas. Quando disponível, o botão “Ver no Google Maps” abre uma consulta externa de localização.",
+    "palavras_chave": [
+      "mapa",
+      "localização",
+      "coordenadas",
+      "google maps",
+      "endereço",
+      "marcador"
+    ]
+  },
+  {
+    "categoria": "Unidades de saúde",
+    "pergunta": "Qual é a diferença entre UBS, UPA e hospital?",
+    "resposta": "A UBS é voltada principalmente à atenção básica e ao acompanhamento de saúde da população. A UPA integra a rede de urgência e emergência, oferecendo atendimento em situações que precisam de avaliação rápida. Hospitais realizam atendimentos e procedimentos de maior complexidade, conforme sua estrutura e os serviços disponíveis. A oferta concreta varia de estabelecimento para estabelecimento.",
+    "palavras_chave": [
+      "ubs",
+      "upa",
+      "hospital",
+      "diferença",
+      "atenção básica",
+      "urgência",
+      "emergência"
+    ]
+  },
+  {
+    "categoria": "Serviços e atendimento",
+    "pergunta": "Quais serviços uma UBS pode oferecer?",
+    "resposta": "As UBS podem oferecer ações de atenção primária, como consultas, vacinação, acompanhamento pré-natal, cuidados de enfermagem, prevenção e acompanhamento de condições de saúde. Nem toda unidade oferece todos os serviços. Consulte o registro da unidade no guia e confirme diretamente com o estabelecimento.",
+    "palavras_chave": [
+      "ubs",
+      "serviços",
+      "consulta",
+      "vacinação",
+      "vacina",
+      "pré-natal",
+      "enfermagem",
+      "atenção primária"
+    ]
+  },
+  {
+    "categoria": "Serviços e atendimento",
+    "pergunta": "Onde encontro informações sobre vacinação?",
+    "resposta": "Na página “Buscar unidades”, procure por “vacinação” ou consulte os serviços cadastrados em cada estabelecimento. Como a oferta, os públicos atendidos e os horários podem variar, confirme a informação com a unidade ou com os canais oficiais da Secretaria de Saúde.",
+    "palavras_chave": [
+      "vacinação",
+      "vacina",
+      "imunização",
+      "dose",
+      "serviços"
+    ]
+  },
+  {
+    "categoria": "Serviços e atendimento",
+    "pergunta": "O aplicativo informa quais profissionais estão disponíveis agora?",
+    "resposta": "Não. O Saúde em Foco é um guia informativo e não acompanha escalas, presença de profissionais ou disponibilidade de atendimento em tempo real. Informações cadastrais, quando apresentadas, não significam que o profissional esteja disponível no momento da consulta.",
+    "palavras_chave": [
+      "profissionais",
+      "médicos",
+      "equipe",
+      "disponibilidade",
+      "agora",
+      "tempo real",
+      "escala"
+    ]
+  },
+  {
+    "categoria": "Serviços e atendimento",
+    "pergunta": "O Saúde em Foco realiza agendamentos ou marca consultas?",
+    "resposta": "Não. O aplicativo não realiza agendamentos, não marca consultas e não substitui os sistemas oficiais de regulação ou os canais de atendimento das unidades. Ele organiza informações para ajudar a população a localizar os serviços.",
+    "palavras_chave": [
+      "agendamento",
+      "agendar",
+      "marcar",
+      "consulta",
+      "regulação",
+      "marcação"
+    ]
+  },
+  {
+    "categoria": "Informações e atualização",
+    "pergunta": "As informações são atualizadas em tempo real?",
+    "resposta": "Não. O guia apresenta informações reunidas em uma base de dados e não possui atualização automática em tempo real. Endereços, contatos, horários e serviços podem mudar; por isso, confirme os dados diretamente com o estabelecimento antes de se deslocar.",
+    "palavras_chave": [
+      "atualização",
+      "tempo real",
+      "atualizado",
+      "horário",
+      "mudança",
+      "dados"
+    ]
+  },
+  {
+    "categoria": "Informações e atualização",
+    "pergunta": "O Saúde em Foco reúne todas as unidades de saúde de Juazeiro?",
+    "resposta": "Não necessariamente. A base atual reúne uma seleção de estabelecimentos pesquisados pela equipe e não deve ser considerada a relação completa da rede municipal. A quantidade e a cobertura podem ser ampliadas conforme a verificação de novas informações.",
+    "palavras_chave": [
+      "todas",
+      "completa",
+      "rede municipal",
+      "unidades",
+      "quantidade",
+      "cobertura"
+    ]
+  },
+  {
+    "categoria": "Mobilidade",
+    "pergunta": "Como consulto as linhas de ônibus de Juazeiro?",
+    "resposta": "Acesse a página “Mobilidade” e utilize o link para consultar linhas e itinerários no Cittamobi. As informações exibidas no guia são uma referência inicial; confira os itinerários e horários diretamente na plataforma de transporte.",
+    "palavras_chave": [
+      "ônibus",
+      "transporte",
+      "mobilidade",
+      "linha",
+      "itinerário",
+      "cittamobi",
+      "horário"
+    ]
+  },
+  {
+    "categoria": "Mobilidade",
+    "pergunta": "O aplicativo informa qual ônibus passa em cada unidade de saúde?",
+    "resposta": "Ainda não de forma confirmada. O guia evita associar uma linha a uma unidade sem verificar os pontos de parada próximos ao endereço. Por isso, consulte o itinerário atualizado na plataforma de transporte antes de viajar.",
+    "palavras_chave": [
+      "ônibus",
+      "linha",
+      "unidade",
+      "ponto",
+      "parada",
+      "transporte",
+      "perto"
+    ]
+  },
+  {
+    "categoria": "Informações e atualização",
+    "pergunta": "Como posso confirmar se uma unidade oferece determinado serviço?",
+    "resposta": "Consulte as informações cadastradas na página “Buscar unidades” e utilize o contato ou a fonte indicada, quando disponíveis. Como os serviços podem mudar e nem sempre estão integralmente descritos no guia, a confirmação deve ser feita diretamente com o estabelecimento ou em um canal oficial.",
+    "palavras_chave": [
+      "confirmar",
+      "serviço",
+      "oferece",
+      "contato",
+      "fonte",
+      "telefone",
+      "informação"
+    ]
+  }
+]

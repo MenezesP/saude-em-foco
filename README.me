@@ -1,40 +1,77 @@
-# Saúde em Foco 🏥
+🏥 Saúde em Foco
 
-**Guia Digital de Serviços de Saúde**
+Guia Digital de Serviços de Saúde de Juazeiro – BA
 
-O Saúde em Foco é uma aplicação web desenvolvida para facilitar a consulta de informações sobre unidades públicas de saúde nos municípios de Juazeiro (BA) e Petrolina (PE).
+O Saúde em Foco é uma aplicação web desenvolvida com o objetivo de facilitar o acesso da população a informações sobre unidades públicas de saúde do município de Juazeiro, Bahia.
 
-## Funcionalidades
+A plataforma reúne informações sobre estabelecimentos de saúde em um ambiente digital de consulta, permitindo que os usuários localizem unidades, conheçam os serviços oferecidos e tenham acesso a informações úteis sobre sua localização e funcionamento.
 
-- Pesquisa de unidades pelo nome ou bairro.
-- Filtro por município.
-- Filtro por categoria: Hospital, UPA e UBS.
-- Visualização de endereço, contato e horário de funcionamento.
-- Consulta dos serviços disponíveis.
-- Links para localização no Google Maps.
-- Acesso às fontes das informações.
+🎯 Objetivo
 
-## Tecnologias utilizadas
+Contribuir para a democratização do acesso à informação em saúde por meio de uma ferramenta digital simples e acessível, aproximando a população dos serviços públicos disponíveis no município.
 
-- Python
-- Streamlit
-- JSON
+✨ Funcionalidades
 
-## Como executar o projeto
+- Pesquisa de unidades: busca por nome, bairro ou endereço.
+- Filtros por categoria: identificação de hospitais, Unidades de Pronto Atendimento (UPAs) e Unidades Básicas de Saúde (UBSs).
+- Informações das unidades: consulta de endereços, contatos, horários de funcionamento e serviços informados.
+- Georreferenciamento: visualização da localização de unidades em um mapa interativo.
+- Mobilidade urbana: consulta de informações de referência sobre linhas de transporte público.
+- Fontes de informação: acesso às referências utilizadas na organização dos dados.
 
-1. Instale o Python.
-2. Instale as dependências:
+🗺️ Mapa e georreferenciamento
 
-   `pip install -r requirements.txt`
+A aplicação utiliza recursos de georreferenciamento para representar espacialmente as unidades de saúde cadastradas.
 
-3. Execute a aplicação:
+O mapa permite visualizar a distribuição dos estabelecimentos no território de Juazeiro, contribuindo para a compreensão da localização dos serviços e sua relação com o espaço urbano.
 
-   `streamlit run app.py`
+🚌 Cibermobilidade
 
-## Abrangência
+O projeto também incorpora informações de transporte público como recurso de apoio à mobilidade urbana.
 
-O projeto tem como foco inicial os municípios de Juazeiro, Bahia, e Petrolina, Pernambuco.
+Essa funcionalidade busca aproximar a localização dos serviços de saúde das possibilidades de deslocamento da população. As informações de transporte são referências de consulta e não representam rastreamento de veículos ou atualização em tempo real.
 
-## Objetivo
+🛠️ Tecnologias utilizadas
 
-Facilitar o acesso da população a informações sobre os serviços públicos de saúde disponíveis na região.
+- Python: linguagem de programação utilizada no desenvolvimento.
+- Streamlit: framework para construção da aplicação web.
+- JSON: formato utilizado para organização e armazenamento dos dados.
+- OpenStreetMap: base cartográfica utilizada na visualização geográfica.
+- Leaflet: biblioteca para construção do mapa interativo.
+
+▶️ Como executar o projeto
+
+1. Instale o Python em seu computador.
+2. Clone este repositório ou faça o download dos arquivos.
+3. Abra a pasta do projeto no terminal.
+4. Instale as dependências:
+   ```
+   pip install -r requirements.txt
+   ```
+5. Execute a aplicação:
+   ```
+   streamlit run app.py
+   ```
+
+📍 Abrangência
+
+O projeto tem como recorte territorial o município de Juazeiro, Bahia.
+
+As informações disponibilizadas são organizadas a partir dos dados reunidos para o desenvolvimento da aplicação. A completude e a atualização dos registros dependem das fontes consultadas.
+
+🎓 Sobre o projeto
+
+O Saúde em Foco foi desenvolvido como atividade acadêmica do curso de Jornalismo em Multimeios, da Universidade do Estado da Bahia (UNEB), no componente curricular Comunicação e Novas Tecnologias.
+
+Professor orientador: Cecílio Bastos.
+
+Equipe
+
+- Ana Julia Alves de Lima Silva
+- Emilly Kauany M. Silva
+- Marianna Haika da Silva Oliveira
+- Rebeca Fonseca da Silva
+- Sophia Santos Araujo
+- Valentina Santana Queiroz
+
+Juazeiro – Bahia | 2026

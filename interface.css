@@ -377,7 +377,13 @@ a.sf-action-primary:hover { background: #00554e; color: white; }
     .st-key-sf_results [data-testid="stHorizontalBlock"] { display: grid; grid-template-columns: 1fr; }
     .st-key-sf_results [data-testid="stColumn"] { width: 100%; }
     .st-key-sf_results [data-testid="stColumn"]:nth-child(2) { grid-row: 1; }
-    .st-key-sf_results iframe { height: 370px; }
+    .st-key-sf_results { --sf-map-height: 370px; }
+    /* O Streamlit também reserva a altura do iframe no item flexível. */
+    .st-key-sf_results [data-testid="stElementContainer"]:has(> iframe) {
+        height: var(--sf-map-height);
+        flex-basis: var(--sf-map-height);
+    }
+    .st-key-sf_results iframe { height: 100%; }
     .sf-intro { max-width: 72%; }
     .st-key-sf_hero [data-testid="stHorizontalBlock"] { width: 75%; }
 }
@@ -410,8 +416,7 @@ a.sf-action-primary:hover { background: #00554e; color: white; }
     .st-key-sf_hero [role="radiogroup"] { gap: .4rem; }
     .st-key-sf_hero [role="radiogroup"] label { min-height: 2.05rem; padding: .22rem .65rem; }
 
-    .st-key-sf_results { margin-top: .15rem; }
-    .st-key-sf_results iframe { height: 320px; }
+    .st-key-sf_results { margin-top: .15rem; --sf-map-height: 320px; }
     .sf-card { padding: .58rem; }
     .sf-card-main { gap: .5rem; }
     .sf-card-symbol { width: 2.48rem; height: 2.48rem; border-radius: .62rem; font-size: 1.17rem; }

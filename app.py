@@ -17,318 +17,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# A interface usa as variáveis nativas do tema do Streamlit. Assim, os mesmos
-# componentes acompanham corretamente os modos light, dark e system.
-st.markdown(
-    """
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
-
-    :root {
-        --sf-green: #16806b;
-        --sf-green-dark: #0d5b4c;
-        --sf-radius: 20px;
-        --sf-border: var(--secondary-background-color);
-    }
-
-    .stApp {
-        font-family: 'DM Sans', sans-serif;
-        background: var(--background-color);
-    }
-    [data-testid="stAppViewContainer"] { background: var(--background-color); }
-    [data-testid="stHeader"] { background: transparent; }
-    .block-container {
-        max-width: 1240px;
-        padding-top: 1.25rem;
-        padding-bottom: 2.5rem;
-    }
-
-    h1, h2, h3, h4, p, label, [data-testid="stMarkdownContainer"] {
-        color: var(--text-color);
-    }
-    h1, h2, h3 { letter-spacing: -0.035em; }
-    h1 { font-weight: 800; letter-spacing: -0.045em; }
-    h2, h3 { font-weight: 750; }
-    [data-testid="stMarkdownContainer"] p { line-height: 1.65; }
-
-    /* Cabeçalho principal */
-    .sf-hero {
-        position: relative;
-        isolation: isolate;
-        overflow: hidden;
-        padding: clamp(27px, 4.5vw, 50px);
-        border-radius: 28px;
-        margin: 4px 0 22px;
-        color: #ffffff;
-        background: linear-gradient(118deg, #0b463e 0%, #116b5a 52%, #23947a 100%);
-        box-shadow: 0 16px 38px rgba(8, 65, 54, .17);
-    }
-    .sf-hero:before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        width: 310px;
-        height: 310px;
-        right: -85px;
-        top: -155px;
-        border: 1px solid rgba(255,255,255,.18);
-        border-radius: 50%;
-        box-shadow: 0 0 0 26px rgba(255,255,255,.045),
-                    0 0 0 56px rgba(255,255,255,.035),
-                    0 0 0 88px rgba(255,255,255,.025);
-    }
-    .sf-kicker {
-        color: #c9eee2 !important;
-        text-transform: uppercase;
-        letter-spacing: .14em;
-        font-size: .72rem;
-        font-weight: 800;
-    }
-    .sf-hero h1 {
-        color: #ffffff !important;
-        font-size: clamp(2.1rem, 4.5vw, 3.25rem);
-        margin: 9px 0 10px;
-        line-height: 1.06;
-    }
-    .sf-hero p {
-        color: #e7f7f1 !important;
-        max-width: 730px;
-        margin: 0;
-        font-size: 1.02rem;
-        line-height: 1.65;
-    }
-
-    /* Identidade visual e navegação em cartões */
-    .sf-brand-row {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 18px;
-    }
-    .sf-brand-mark {
-        width: 58px;
-        height: 58px;
-        flex: 0 0 58px;
-        display: grid;
-        place-items: center;
-        border-radius: 18px;
-        color: #ffffff;
-        background: linear-gradient(145deg, #0d5b4c, #16806b);
-        box-shadow: 0 8px 20px rgba(13,91,76,.20);
-    }
-    .sf-brand-name {
-        color: var(--text-color);
-        font-size: clamp(1.35rem, 2.8vw, 1.8rem);
-        line-height: 1.12;
-        font-weight: 800;
-        letter-spacing: -.045em;
-    }
-    .sf-brand-subtitle {
-        margin-top: 5px;
-        color: var(--sf-green);
-        font-size: .68rem;
-        line-height: 1.4;
-        font-weight: 800;
-        letter-spacing: .13em;
-        text-transform: uppercase;
-    }
-    .sf-menu-heading {
-        margin: 4px 0 9px;
-        color: var(--text-color);
-        font-size: .76rem;
-        font-weight: 800;
-        letter-spacing: .10em;
-        text-transform: uppercase;
-        opacity: .68;
-    }
-    div[data-testid="stButton"] button {
-        min-height: 58px;
-        white-space: normal;
-        border-radius: 15px;
-        border: 1px solid var(--sf-border);
-        background: var(--secondary-background-color);
-        color: var(--text-color);
-        font-size: .91rem;
-        font-weight: 700;
-        line-height: 1.25;
-        padding: 10px 12px;
-        box-shadow: 0 3px 12px rgba(20,50,40,.035);
-    }
-    div[data-testid="stButton"] button[kind="primary"] {
-        background: linear-gradient(115deg, #0d5b4c, #16806b);
-        border-color: #16806b;
-        color: #ffffff;
-        box-shadow: 0 7px 18px rgba(13,91,76,.16);
-    }
-    div[data-testid="stButton"] button:hover {
-        border-color: var(--sf-green);
-        color: var(--sf-green-dark);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(13,91,76,.10);
-    }
-    div[data-testid="stButton"] button[kind="primary"]:hover {
-        color: #ffffff;
-    }
-
-    /* Títulos de seção e blocos informativos */
-    .sf-section-kicker {
-        color: var(--sf-green) !important;
-        font-size: .76rem;
-        text-transform: uppercase;
-        letter-spacing: .12em;
-        font-weight: 800;
-        margin-bottom: 3px;
-    }
-    .sf-feature {
-        height: 100%;
-        min-height: 158px;
-        padding: 22px;
-        border: 1px solid var(--sf-border);
-        border-radius: var(--sf-radius);
-        background: var(--secondary-background-color);
-        box-shadow: 0 5px 18px rgba(20, 50, 40, .035);
-        transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .sf-feature:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 24px rgba(20, 50, 40, .08);
-    }
-    .sf-feature .sf-icon { font-size: 1.55rem; margin-bottom: 11px; }
-    .sf-feature h3 {
-        font-size: 1.04rem;
-        margin: 0 0 8px;
-        color: var(--text-color) !important;
-    }
-    .sf-feature p {
-        color: var(--text-color) !important;
-        opacity: .82;
-        font-size: .91rem;
-        margin: 0;
-        line-height: 1.55;
-    }
-    .sf-note {
-        padding: 17px 20px;
-        border-radius: 16px;
-        background: var(--secondary-background-color);
-        border: 1px solid var(--sf-border);
-        border-left: 4px solid var(--sf-green);
-        margin: 9px 0 16px;
-        line-height: 1.65;
-    }
-    .sf-team {
-        padding: 14px 16px;
-        margin: 5px 0;
-        border: 1px solid var(--sf-border);
-        border-radius: 14px;
-        background: var(--secondary-background-color);
-        font-weight: 600;
-        color: var(--text-color);
-    }
-
-    /* Indicadores e cartões */
-    [data-testid="stMetric"] {
-        background: var(--secondary-background-color);
-        border: 1px solid var(--sf-border);
-        padding: 18px 20px;
-        border-radius: 18px;
-        box-shadow: 0 5px 18px rgba(20, 50, 40, .035);
-    }
-    [data-testid="stMetricLabel"] { font-weight: 600; }
-    [data-testid="stMetricLabel"], [data-testid="stMetricValue"] {
-        color: var(--text-color) !important;
-    }
-    [data-testid="stVerticalBlockBorderWrapper"] {
-        border-color: var(--sf-border) !important;
-        border-radius: 18px !important;
-        background: var(--secondary-background-color);
-    }
-
-    /* Campos, botões e componentes interativos */
-    [data-testid="stTextInput"] input,
-    [data-testid="stTextArea"] textarea,
-    [data-testid="stSelectbox"] [data-baseweb="select"] > div {
-        border-radius: 12px;
-    }
-    [data-testid="stTextInput"] input:focus,
-    [data-testid="stTextArea"] textarea:focus {
-        border-color: var(--sf-green) !important;
-        box-shadow: 0 0 0 1px var(--sf-green) !important;
-    }
-    div[data-testid="stButton"] button,
-    div[data-testid="stLinkButton"] a,
-    [data-testid="stFormSubmitButton"] button {
-        border-radius: 12px;
-        font-weight: 700;
-        min-height: 43px;
-        transition: transform .15s ease, box-shadow .15s ease;
-    }
-    div[data-testid="stButton"] button:hover,
-    div[data-testid="stLinkButton"] a:hover,
-    [data-testid="stFormSubmitButton"] button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 5px 14px rgba(13, 91, 76, .12);
-    }
-    [data-testid="stExpander"] {
-        border: 1px solid var(--sf-border);
-        border-radius: 14px;
-        overflow: hidden;
-    }
-    [data-testid="stCaptionContainer"] { opacity: .82; }
-
-    /* Rodapé */
-    .sf-footer {
-        text-align: center;
-        padding: 23px 8px 5px;
-        margin-top: 28px;
-        border-top: 1px solid var(--sf-border);
-        color: var(--text-color);
-        opacity: .72;
-        font-size: .86rem;
-        line-height: 1.7;
-    }
-
-    /* Adaptação para celulares */
-    @media (max-width: 700px) {
-        .block-container {
-            padding-left: 1rem;
-            padding-right: 1rem;
-            padding-top: .8rem;
-        }
-        .sf-hero {
-            border-radius: 21px;
-            padding: 25px 21px;
-        }
-        .sf-hero p { font-size: .94rem; }
-        .sf-brand-row { gap: 11px; }
-        .sf-brand-mark {
-            width: 50px;
-            height: 50px;
-            flex-basis: 50px;
-            border-radius: 15px;
-        }
-        .sf-brand-subtitle { font-size: .59rem; letter-spacing: .09em; }
-        div[data-testid="stButton"] button {
-            min-height: 64px;
-            padding: 9px 7px;
-            font-size: .82rem;
-        }
-        [data-testid="stMetric"] {
-            padding: 14px;
-            border-radius: 15px;
-        }
-        .sf-feature { min-height: 0; padding: 18px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        *, *:before, *:after {
-            transition-duration: .01ms !important;
-            animation-duration: .01ms !important;
-        }
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+st.html(Path(__file__).with_name("interface.css"))
 
 
 def normalizar_texto(valor):
@@ -435,75 +124,199 @@ unidades = [
     if normalizar_texto(u.get("municipio", "juazeiro")) in ("juazeiro", "juazeiro ba", "")
 ]
 
-st.markdown(
-    '<div class="sf-brand-row">'
-    '<div class="sf-brand-mark"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
-    '<path d="M3 12h4l2.1-5.2L13 17l2.2-5H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
-    '<path d="M12 2.8c-2.1-2-5.5-1.8-7.3.3-1.9 2.2-1.5 5.4.4 7.3L12 17l6.9-6.6c1.9-1.9 2.3-5.1.4-7.3-1.8-2.1-5.2-2.3-7.3-.3Z" stroke="white" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" opacity=".72" transform="translate(0 3) scale(1 .82)"/>'
-    '</svg></div>'
-    '<div><div class="sf-brand-name">Saúde em Foco</div>'
-    '<div class="sf-brand-subtitle">Guia digital de serviços de saúde · Juazeiro – BA</div></div></div>'
-    '<div class="sf-hero"><div class="sf-kicker">Informação, localização e acesso</div>'
-    '<h1>Saúde mais perto de você.</h1>'
-    '<p>Informação organizada para aproximar a população dos serviços públicos de saúde.</p></div>',
-    unsafe_allow_html=True,
-)
-
 paginas_menu = [
-    ("Início", "⌂  Início"),
-    ("Buscar unidades", "⌕  Buscar unidades"),
-    ("Perguntas frequentes", "?  Perguntas frequentes"),
-    ("Mobilidade", "↗  Mobilidade"),
-    ("Sobre o projeto", "ⓘ  Sobre o projeto"),
-    ("Avaliar", "☆  Avaliar"),
+    ("Início", "Unidades", "local_hospital"),
+    ("Perguntas frequentes", "Perguntas frequentes", "help"),
+    ("Mobilidade", "Mobilidade", "directions_bus"),
+    ("Sobre o projeto", "Sobre", "info"),
+    ("Avaliar", "Avaliar", "star"),
 ]
-if "pagina" not in st.session_state or st.session_state.pagina not in [p[0] for p in paginas_menu]:
+if st.session_state.get("pagina") not in {p[0] for p in paginas_menu}:
     st.session_state.pagina = "Início"
-
-st.markdown('<div class="sf-menu-heading">Explore o guia</div>', unsafe_allow_html=True)
-menu_linhas = [st.columns(3), st.columns(3)]
-for indice, (nome_pagina, rotulo) in enumerate(paginas_menu):
-    linha = indice // 3
-    coluna = indice % 3
-    with menu_linhas[linha][coluna]:
-        st.button(
-            rotulo,
-            key=f"menu_{indice}",
-            type="primary" if st.session_state.pagina == nome_pagina else "secondary",
-            use_container_width=True,
-            on_click=lambda destino=nome_pagina: st.session_state.update(pagina=destino),
-        )
 
 pagina = st.session_state.pagina
 
+
+def icone_material(nome):
+    return f'<span class="sf-icon" aria-hidden="true">{nome}</span>'
+
+
+icones_categoria = {"UBS": "medical_services", "UPA": "local_hospital", "Hospital": "apartment"}
+classes_categoria = {"UBS": "ubs", "UPA": "upa", "Hospital": "hospital"}
+
+def exibir_mapa(marcadores):
+    dados_mapa = json.dumps(marcadores, ensure_ascii=False).replace("</", "<\\/")
+    html_mapa = """<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><style>
+    html,body{margin:0;padding:0;background:transparent}#mapa{height:100vh;width:100%;border-radius:13px;z-index:1;background:#e8eeeb}
+    .legenda{display:flex;flex-wrap:wrap;gap:9px;font:12px Arial,sans-serif;padding:8px 10px;background:white;color:#26352f;border-radius:9px;box-shadow:0 1px 6px #0002}
+    .ponto{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+    .leaflet-tile-pane{filter:saturate(.76) brightness(1.035)}
+    .leaflet-popup-content-wrapper{border-radius:13px;color:#142a33;box-shadow:0 5px 20px #0c383a35}
+    .leaflet-popup-content{line-height:1.55;margin:13px 21px}
+    .leaflet-popup-content strong{font-size:1.12em}
+    .leaflet-control-zoom{border:0!important;border-radius:10px!important;overflow:hidden;box-shadow:0 2px 12px #0c383a36}
+    .sf-pin{width:29px;height:34px;display:grid;place-items:center;padding-bottom:4px;color:white;
+      background:var(--pin);border:2px solid white;border-radius:55% 55% 56% 56% / 48% 48% 72% 72%;
+      box-shadow:0 3px 7px #0b383f55;font:900 20px/1 Arial,sans-serif;box-sizing:border-box}
+    .sf-pin.provisorio{border-style:dashed;background:#fff;color:var(--pin);border-color:var(--pin)}
+    </style></head><body><div id="mapa" role="region" aria-label="Localização das unidades de saúde"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script>
+    const dados=__DADOS__;
+    const mapa=L.map('mapa',{zoomControl:false});
+    L.control.zoom({position:'bottomright',zoomInTitle:'Ampliar',zoomOutTitle:'Reduzir'}).addTo(mapa);
+    const cores={'UBS':'#087d74','UPA':'#166b5d','Hospital':'#0668a8'};
+    const letras={'UBS':'+','UPA':'U','Hospital':'H'};
+    const pontos=[];
+    dados.forEach(u=>{const p=[u.latitude,u.longitude], cor=cores[u.categoria]||'#087d74';
+          const icone=L.divIcon({className:'',iconSize:[29,34],iconAnchor:[14,33],popupAnchor:[0,-30],
+            html:'<span class="sf-pin'+(u.confirmada?'':' provisorio')+'" style="--pin:'+cor+'">'+(letras[u.categoria]||'+')+'</span>'});
+          L.marker(p,{icon:icone,title:u.nome,alt:u.nome}).addTo(mapa).bindPopup(u.popup);
+          pontos.push(p);});
+    if(pontos.length>1)mapa.fitBounds(pontos,{padding:[28,28]});else mapa.setView(pontos[0],15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(mapa);
+    const legenda=L.control({position:'bottomleft'});legenda.onAdd=function(){const d=L.DomUtil.create('div','legenda');d.innerHTML=
+      '<span><span class="ponto" style="background:#087d74"></span>UBS</span>' +
+      '<span><span class="ponto" style="background:#166b5d"></span>UPA</span>' +
+      '<span><span class="ponto" style="background:#0668a8"></span>Hospital</span>';return d;};legenda.addTo(mapa);
+    </script></body></html>""".replace("__DADOS__", dados_mapa)
+    components.html(html_mapa, height=534, scrolling=False)
+
+
+def cartao_unidade(unidade):
+    nome = str(unidade.get("nome", "Nome não informado"))
+    categoria = obter_categoria(unidade)
+    bairro = unidade.get("bairro") or "Bairro não informado"
+    endereco = unidade.get("endereco") or "Endereço não informado"
+    local = endereco
+    if unidade.get("bairro") and normalizar_texto(bairro) not in normalizar_texto(endereco):
+        local = f"{endereco} · {bairro}"
+    contato = unidade.get("contato") or "Contato não informado"
+    horario = unidade.get("horario") or "Horário não informado"
+    servicos = unidade.get("servicos")
+    if not isinstance(servicos, list):
+        servicos = []
+
+    def texto(valor):
+        return html.escape(str(valor))
+
+    def link(rotulo, url, classe=""):
+        return f'<a class="{classe}" href="{texto(url)}" target="_blank" rel="noopener noreferrer">{rotulo}</a>'
+
+    rotulos_servicos = [
+        servico.get("categoria", "Serviço") if isinstance(servico, dict) else servico
+        for servico in servicos
+    ]
+    resumo = ", ".join(map(str, rotulos_servicos[:3])) or "Consulte a unidade"
+    if len(servicos) > 3:
+        resumo += f" e mais {len(servicos) - 3}"
+    servicos_html = []
+    for rotulo, servico in zip(rotulos_servicos, servicos):
+        descricao = servico.get("descricao") if isinstance(servico, dict) else ""
+        servicos_html.append(
+            f'<li><strong>{texto(rotulo)}</strong>' + (f' — {texto(descricao)}' if descricao else "") + '</li>'
+        )
+    detalhes_servicos = (
+        "<ul>" + "".join(servicos_html) + "</ul>" if servicos
+        else "<p>Serviços específicos ainda não cadastrados. Confirme a oferta diretamente com o estabelecimento.</p>"
+    )
+
+    fontes = [
+        ("Ver coordenadas", link_coordenadas_google_maps(unidade)),
+        ("Consultar fonte", link_valido(unidade.get("fonte"))),
+    ]
+    fontes_adicionais = unidade.get("fontes_adicionais")
+    if isinstance(fontes_adicionais, list):
+        for fonte in fontes_adicionais:
+            if isinstance(fonte, dict):
+                fontes.append((fonte.get("nome", "Fonte complementar"), link_valido(fonte.get("url"))))
+            else:
+                fontes.append(("Fonte complementar", link_valido(fonte)))
+    links = "".join(f'<li>{link(texto(rotulo), url)}</li>' for rotulo, url in fontes if url)
+
+    return (
+        f'<article class="sf-card sf-card-{classes_categoria.get(categoria, "outra")}">'
+        '<div class="sf-card-main">'
+        f'<div class="sf-card-symbol">{icone_material(icones_categoria.get(categoria, "medical_services"))}</div>'
+        '<div class="sf-card-info">'
+        f'<div class="sf-card-heading"><h3>{texto(nome)}</h3>'
+        f'<span class="sf-badge">{texto(categoria)}</span></div>'
+        f'<p>{icone_material("location_on")}<span>{texto(local)}</span></p>'
+        f'<p>{icone_material("call")}<span>{texto(contato)}</span></p>'
+        f'<p>{icone_material("medical_services")}<span><strong>Serviços:</strong> {texto(resumo)}</span></p>'
+        '</div></div>'
+        '<div class="sf-card-actions">'
+        f'<details class="sf-details"><summary class="sf-action">{icone_material("info")}Ver detalhes</summary>'
+        '<div class="sf-details-body"><dl>'
+        f'<dt>Horário informado</dt><dd>{texto(horario)}</dd>'
+        f'<dt>CNES</dt><dd>{texto(unidade.get("cnes") or "Não informado")}</dd>'
+        f'<dt>Esfera de gestão</dt><dd>{texto(unidade.get("esfera_gestao") or "Não informada")}</dd>'
+        f'</dl><h4>Serviços disponíveis</h4>{detalhes_servicos}'
+        + (f'<h4>Fontes e localização no mapa</h4><ul>{links}</ul>' if links else "")
+        + '</div></details>'
+        + link(f'{icone_material("near_me")}Encontrar unidade', link_pesquisa_google_maps(unidade), "sf-action sf-action-primary")
+        + '</div></article>'
+    )
+
+
+with st.container(key="sf_header"):
+    marca, menu = st.columns([4, 6], vertical_alignment="center")
+    with marca:
+        st.html(
+            '<div class="sf-brand">'
+            '<span class="sf-brand-mark" aria-hidden="true">♥</span>'
+            '<span class="sf-brand-name">Saúde em Foco</span>'
+            f'<span class="sf-city">{icone_material("location_on")}Juazeiro · Bahia</span>'
+            '</div>'
+        )
+    with menu:
+        for coluna, (destino, rotulo, icone) in zip(st.columns([1.05, 1.8, 1.2, .85, .9]), paginas_menu):
+            coluna.button(
+                rotulo,
+                icon=f":material/{icone}:",
+                key=f"menu_{destino}",
+                type="primary" if pagina == destino else "tertiary",
+                width="stretch",
+                on_click=lambda destino=destino: st.session_state.update(pagina=destino),
+            )
+
 if pagina == "Início":
-    st.markdown('<div class="sf-section-kicker">Bem-vindo(a)</div>', unsafe_allow_html=True)
-    st.title("Encontre informações de saúde em Juazeiro.")
-    st.write("Pesquise estabelecimentos, consulte dados cadastrados e visualize no mapa os locais que possuem coordenadas disponíveis.")
+    with st.container(key="sf_hero"):
+        st.html(
+            '<div class="sf-intro">'
+            '<h1>Encontre atendimento <em>perto de você</em></h1>'
+            '<p>Pesquise unidades de saúde em Juazeiro – BA pelo nome, bairro ou endereço. '
+            'Confira os serviços cadastrados, horários e a localização no mapa.</p>'
+            '</div>'
+        )
+        col_busca, col_mapa = st.columns([7, 3], vertical_alignment="center")
+        with col_busca:
+            pesquisa = st.text_input(
+                "Pesquise por bairro, endereço ou unidade",
+                placeholder="Digite seu bairro, endereço ou unidade...",
+                icon=":material/search:",
+                label_visibility="collapsed",
+                key="pesquisa_unidade",
+            )
+        with col_mapa:
+            st.html(
+                '<a class="sf-action sf-action-primary sf-map-cta" href="#mapa-das-unidades" target="_self">'
+                f'{icone_material("location_on")}Consultar localização</a>'
+            )
 
-    c1, c2, c3 = st.columns(3)
-    c1.metric("Unidades no guia", len(unidades))
-    c2.metric("Categorias", len({obter_categoria(u) for u in unidades}))
-    c3.metric("Com coordenadas", sum(obter_coordenadas(u) is not None for u in unidades))
-
-    st.markdown("### O que você pode fazer")
-    f1, f2, f3 = st.columns(3)
-    with f1:
-        st.markdown('<div class="sf-feature"><div class="sf-icon">🔎</div><h3>Encontrar unidades</h3><p>Pesquise pelo nome, bairro ou endereço e filtre por categoria.</p></div>', unsafe_allow_html=True)
-    with f2:
-        st.markdown('<div class="sf-feature"><div class="sf-icon">🗺️</div><h3>Consultar localização</h3><p>Veja no mapa os estabelecimentos com coordenadas cadastradas.</p></div>', unsafe_allow_html=True)
-    with f3:
-        st.markdown('<div class="sf-feature"><div class="sf-icon">🚌</div><h3>Mobilidade</h3><p>Acesse a consulta externa de linhas e itinerários de ônibus.</p></div>', unsafe_allow_html=True)
-    st.info("A base reúne uma seleção de estabelecimentos, não necessariamente toda a rede municipal. Use **Buscar unidades** para consultar os registros disponíveis.")
-
-elif pagina == "Buscar unidades":
-    st.title("🔎 Buscar unidades de saúde")
-    st.write("Encontre estabelecimentos pelo nome, bairro ou endereço.")
-    col_busca, col_categoria = st.columns([2, 1])
-    with col_busca:
-        pesquisa = st.text_input("Pesquisar", placeholder="Ex.: Angari, Centro, UPA...", key="pesquisa_unidade")
-    with col_categoria:
-        filtro_categoria = st.selectbox("Categoria", ["Todas", "UBS", "UPA", "Hospital"], key="filtro_categoria")
+        rotulos_categoria = {
+            "Todas": "Todas",
+            "UBS": ":material/medical_services: UBS",
+            "UPA": ":material/local_hospital: UPA",
+            "Hospital": ":material/apartment: Hospitais",
+        }
+        filtro_categoria = st.radio(
+            "Filtrar por tipo de atendimento:",
+            ["Todas", "UBS", "UPA", "Hospital"],
+            format_func=rotulos_categoria.__getitem__,
+            horizontal=True,
+            key="filtro_categoria",
+        )
 
     termo = normalizar_texto(pesquisa)
     filtradas = []
@@ -513,8 +326,6 @@ elif pagina == "Buscar unidades":
         corresponde_categoria = filtro_categoria == "Todas" or obter_categoria(unidade) == filtro_categoria
         if corresponde_texto and corresponde_categoria:
             filtradas.append(unidade)
-
-    st.caption(f"{len(filtradas)} estabelecimento(s) encontrado(s).")
 
     marcadores, sem_coordenadas = [], []
     for unidade in filtradas:
@@ -532,144 +343,49 @@ elif pagina == "Buscar unidades":
         )
         marcadores.append({
             "latitude": coords["latitude"], "longitude": coords["longitude"],
-            "popup": popup, "categoria": categoria, "confirmada": confirmada,
+            "popup": popup, "categoria": categoria, "confirmada": confirmada, "nome": nome,
         })
 
-    st.markdown("### 🗺️ Mapa dos estabelecimentos")
-    if marcadores:
-        dados_mapa = json.dumps(marcadores, ensure_ascii=False).replace("</", "<\\/")
-        html_mapa = """<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><style>
-        html,body{margin:0;padding:0;background:transparent}#mapa{height:430px;width:100%;border-radius:18px;z-index:1}
-        .legenda{font:13px Arial,sans-serif;padding:9px 12px;background:white;color:#26352f;border-radius:10px;box-shadow:0 1px 6px #0002;line-height:1.7}
-        .ponto{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
-        @media(max-width:600px){#mapa{height:350px}}
-        </style></head><body><div id="mapa"></div>
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script>
-        const dados=__DADOS__;
-        const mapa=L.map('mapa').setView([-9.43,-40.50],13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(mapa);
-        const cores={'UBS':'#16806b','UPA':'#df922e','Hospital':'#cf514d'}; const pontos=[];
-        dados.forEach(u=>{const p=[u.latitude,u.longitude], cor=cores[u.categoria]||'#16806b';
-          L.circleMarker(p,{radius:9,color:cor,fillColor:cor,fillOpacity:u.confirmada?.9:.35,weight:u.confirmada?2:3,dashArray:u.confirmada?null:'4 4'})
-          .addTo(mapa).bindPopup(u.popup);pontos.push(p);});
-        if(pontos.length>1)mapa.fitBounds(pontos,{padding:[28,28]});else if(pontos.length===1)mapa.setView(pontos[0],15);
-        const legenda=L.control({position:'bottomright'});legenda.onAdd=function(){const d=L.DomUtil.create('div','legenda');d.innerHTML=
-          '<b>Unidades</b><br><span class="ponto" style="background:#16806b"></span>UBS<br><span class="ponto" style="background:#df922e"></span>UPA<br><span class="ponto" style="background:#cf514d"></span>Hospital<br>Contorno tracejado: localização provisória';return d;};legenda.addTo(mapa);
-        </script></body></html>""".replace("__DADOS__", dados_mapa)
-        components.html(html_mapa, height=445, scrolling=False)
-        st.caption("Marcadores com contorno tracejado representam localizações provisórias, ainda não confirmadas pela equipe.")
-    else:
-        st.info("Nenhuma das unidades encontradas possui coordenadas cadastradas para exibição no mapa.")
+    with st.container(key="sf_results"):
+        col_lista, col_localizacao = st.columns([43, 55], gap="medium")
+        with col_lista:
+            quantidade = len(filtradas)
+            legenda_resultados = "resultado" if quantidade == 1 else "resultados"
+            st.html(
+                '<div class="sf-results-heading">'
+                f'<h2>{icone_material("domain")}Unidades encontradas</h2>'
+                f'<span>{quantidade} {legenda_resultados}</span></div>'
+            )
+            if not filtradas:
+                st.warning("Nenhuma unidade encontrada. Tente outro termo ou categoria.")
+            for unidade in filtradas:
+                st.html(cartao_unidade(unidade))
 
-    if sem_coordenadas:
-        with st.expander(f"Unidades sem coordenadas ({len(sem_coordenadas)})"):
-            st.write(" · ".join(sem_coordenadas))
+        with col_localizacao:
+            st.html('<h2 id="mapa-das-unidades" class="sf-visually-hidden" tabindex="-1">Mapa das unidades</h2>')
+            if marcadores:
+                exibir_mapa(marcadores)
+            else:
+                st.info("Nenhuma das unidades encontradas possui coordenadas cadastradas para exibição no mapa.")
 
-    st.markdown("### Resultados")
-    if not filtradas:
-        st.warning("Nenhuma unidade encontrada. Tente outro termo ou categoria.")
-
-    for unidade in filtradas:
-        nome = str(unidade.get("nome", "Nome não informado"))
-        categoria = obter_categoria(unidade)
-        bairro = unidade.get("bairro") or "Bairro não informado"
-        endereco = unidade.get("endereco") or "Endereço não informado"
-        contato = unidade.get("contato") or "Contato não informado"
-        horario = unidade.get("horario") or "Horário não informado"
-        servicos = unidade.get("servicos", [])
-
-        with st.container(border=True):
-            titulo_col, tag_col = st.columns([4, 1])
-            with titulo_col:
-                st.subheader(nome)
-                st.caption(f"📍 {bairro}")
-            with tag_col:
-                st.markdown(f"**{categoria}**")
-
-            # Resumo rápido: informações essenciais visíveis sem abrir os detalhes.
-            resumo = st.columns(3)
-            with resumo[0]:
-                st.caption("📍 Localização")
-                st.write(bairro)
-            with resumo[1]:
-                st.caption("🕒 Atendimento")
-                st.write("Consulte os horários" if horario != "Horário não informado" else "Não informado")
-            with resumo[2]:
-                st.caption("🩺 Serviços")
-                st.write(f"{len(servicos)} {'informação' if len(servicos) == 1 else 'informações'}" if isinstance(servicos, list) and servicos else "Consulte os detalhes")
-
-            with st.expander("📍 Localização e contato", expanded=False):
-                st.markdown(f"**Endereço**  \n{endereco}")
-                st.markdown(f"**Bairro**  \n{bairro}")
-                st.markdown(f"**Contato**  \n{contato}")
-
-            with st.expander("🕒 Horários e cadastro", expanded=False):
-                st.markdown(f"**Horário informado**  \n{horario}")
-                cadastro_col1, cadastro_col2 = st.columns(2)
-                with cadastro_col1:
-                    if unidade.get("cnes"):
-                        st.markdown(f"**CNES**  \n{unidade['cnes']}")
-                    else:
-                        st.caption("CNES não informado.")
-                with cadastro_col2:
-                    if unidade.get("esfera_gestao"):
-                        st.markdown(f"**Esfera de gestão**  \n{unidade['esfera_gestao']}")
-                    else:
-                        st.caption("Esfera de gestão não informada.")
-
-            with st.expander("🩺 Serviços disponíveis", expanded=False):
-                if isinstance(servicos, list) and servicos:
-                    serv_col1, serv_col2 = st.columns(2)
-                    for i, servico in enumerate(servicos):
-                        alvo = serv_col1 if i % 2 == 0 else serv_col2
-                        with alvo:
-                            if isinstance(servico, dict):
-                                rotulo = servico.get("categoria", "Serviço")
-                                descricao = servico.get("descricao", "")
-                                icone = servico.get("icone", "🩺")
-                                st.markdown(f"**{icone} {rotulo}**")
-                                if descricao:
-                                    st.caption(descricao)
-                            else:
-                                st.markdown(f"• 🩺 {servico}")
-                else:
-                    st.info("Serviços específicos ainda não cadastrados. Confirme a oferta diretamente com o estabelecimento.")
-
-            with st.expander("🔗 Fontes e localização no mapa", expanded=False):
-                link_pesquisa = link_pesquisa_google_maps(unidade)
-                link_coordenadas = link_coordenadas_google_maps(unidade)
-                link_fonte = link_valido(unidade.get("fonte", ""))
-                botoes = st.columns(3)
-                with botoes[0]:
-                    if link_pesquisa:
-                        st.link_button("🔎 Encontrar unidade", link_pesquisa, use_container_width=True)
-                    else:
-                        st.caption("Pesquisa não disponível.")
-                with botoes[1]:
-                    if link_coordenadas:
-                        st.link_button("📍 Ver coordenadas", link_coordenadas, use_container_width=True)
-                    else:
-                        st.caption("Coordenadas não cadastradas.")
-                with botoes[2]:
-                    if link_fonte:
-                        st.link_button("Consultar fonte", link_fonte, use_container_width=True)
-                    else:
-                        st.caption("Fonte principal não cadastrada.")
-
-                fontes_adicionais = unidade.get("fontes_adicionais", [])
-                fontes_validas = []
-                if isinstance(fontes_adicionais, list):
-                    for fonte in fontes_adicionais:
-                        url = link_valido(fonte.get("url")) if isinstance(fonte, dict) else link_valido(fonte)
-                        if url:
-                            rotulo = fonte.get("nome", "Fonte complementar") if isinstance(fonte, dict) else "Fonte complementar"
-                            fontes_validas.append((rotulo, url))
-                if fontes_validas:
-                    st.markdown("**Fontes complementares**")
-                    for rotulo, url in fontes_validas:
-                        st.markdown(f"- [{rotulo}]({url})")
-
+            indicadores = [
+                ("domain", len(unidades), "Unidades no guia"),
+                ("category", len({obter_categoria(u) for u in unidades}), "Categorias"),
+                ("location_on", sum(obter_coordenadas(u) is not None for u in unidades), "Com coordenadas"),
+            ]
+            st.html(
+                '<div class="sf-metrics">' + "".join(
+                    f'<div class="sf-metric">{icone_material(icone)}'
+                    f'<div><strong>{valor}</strong><span>{rotulo}</span></div></div>'
+                    for icone, valor, rotulo in indicadores
+                ) + '</div>'
+            )
+            if marcadores:
+                st.caption("Marcadores tracejados indicam localizações provisórias, ainda não confirmadas pela equipe.")
+            if sem_coordenadas:
+                with st.expander(f"Unidades sem coordenadas ({len(sem_coordenadas)})"):
+                    st.write(" · ".join(sem_coordenadas))
+            st.caption("O guia reúne uma seleção de estabelecimentos da rede municipal.")
 
 elif pagina == "Perguntas frequentes":
     st.title("❓ Perguntas frequentes")
